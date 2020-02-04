@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/global.css">
+    <script src="https://kit.fontawesome.com/6156ec0921.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Mister Blog</title>
+</head>
+
+<body>
+    <div class="screen" onclick="hideModals()"></div>
+    <nav class="main-nav">
+        <div class="container flex space-between align-center">
+            <a class="close-btn" onclick="toggleMenu()">X</a>
+            <div class="main-logo">Blogin<span class="green">.</span></div>
+            <button class="menu-btn" onclick="toggleMenu()">&#9776;</button>
+            <ul class="main-menu clean-list flex end">
+                <li><div class="dropdown">
+                        <a onclick="toggleSelected(this);onToggleDrop()" class="selected" href="#">Journal</a>
+                        <div class="dropdown-content">
+                          <a href="#">Jan 2019</a>
+                          <a href="#">Feb 2019</a>
+                          <a href="#">March 2019</a>
+                        </div>
+                      </div></li>
+                <li><a onclick="toggleSelected(this)" href="#">About</a></li>
+                <li><a onclick="toggleSelected(this)" href="#">Work</a></li>
+                <li><a onclick="toggleSelected(this)" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-content container border">
+        <ul class="post-container clean-list">
+            <li class="post flex">
+                <img src="img/001.jpg" alt="">
+                <div class="post-text">
+                    <h2 class="post-title">Duis aute irure dolor in
+                        henderit in voluptate.</h2>
+                    <p class="post-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip
+                        ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur...</p>
+                    <button onclick="onToggleModal()">Continue reading</button>
+                </div>
+            <li class="post flex">
+                <img src="img/002.jpg" alt="">
+                <div class="post-text">
+                    <h2 class="post-title">Duis aute irure dolor in
+                        henderit in voluptate.</h2>
+                    <p class="post-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip
+                        ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur...</p>
+                    <button onclick="onToggleModal()">Continue reading</button>
+                </div>
+            <li class="post flex">
+                <img src="img/003.jpg" alt="">
+                <div class="post-text">
+                    <h2 class="post-title">Duis aute irure dolor in
+                        henderit in voluptate.</h2>
+                    <p class="post-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                        aliquip
+                        ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur...</p>
+                    <button onclick="onToggleModal()">Continue reading</button>
+                </div>
+
+
+        </ul>
+        <div class="nav-footer flex space-between align-center">
+            <a>&#8592;Previous</a>
+            <a>Next&#8594;</a>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="sub-logo">Blogin<span class="green">.</span></div>
+            <small>All rights reserved</small>
+            <div class="social-container">
+                <a class="" href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
+                <a class="" href="#"><i class="fab fa-twitter-square fa-2x"></i></a>
+                <a class="" href="#"><i class="fab fa-behance-square fa-2x"></i></a>
+                <a class="" href="#"><i class="fab fa-dribbble-square fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" hidden>
+        <h2>Join us to get full Access!!!</h2>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip
+            ex ea commo doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur...</p>
+            <label for="email">Email: </label>
+        <input type="email" placeholder="Enter your email">
+        <button onclick="onToggleModal()">Submit</button>
+    </div>
+
+    <script>
+        function hideModals(){
+            if (document.body.classList.contains('menu-open')) document.body.classList.toggle('menu-open');
+            else onToggleModal()
+        }
+        function toggleMenu() {
+            document.body.classList.toggle('menu-open');
+        }
+        function onToggleModal() {
+            document.body.classList.toggle('modal-open');
+            document.querySelector('.modal').hidden = !document.querySelector('.modal').hidden
+        }
+        function toggleSelected(elClicked){
+            document.querySelector('.selected').classList.remove('selected')
+            elClicked.classList.add('selected')
+        }
+        function onToggleDrop(){
+            // if (screen.width < 720)
+            document.querySelector('.dropdown-content').classList.toggle('shown')
+        }
+    </script>
+</body>
+
+</html>

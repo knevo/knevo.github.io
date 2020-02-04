@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lib/animate.css">
+    <title>Book Store</title>
+</head>
+
+<body onload="init()">
+    <div class="container row justify-content-between">
+        <!-- LANGUAGE DROPDOWN -->
+        <div class="dropdown show">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" id="lang-drop">
+                English
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" data-value="en" onclick="onSetLang(this)">English</a>
+                <a class="dropdown-item" data-value="he" onclick="onSetLang(this)">עברית</a>
+                <a class="dropdown-item" data-value="es" onclick="onSetLang(this)">Spanish</a>
+            </div>
+        </div>
+        <!-- PAGINATION NAV BAR -->
+        <nav id="page-nav">
+            <ul class="pagination pagination-md"></ul>
+        </nav>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="sort" data-value="id" onclick="onSortClick(this)">ID</th>
+                    <th class="sort" data-value="name" onclick="onSortClick(this)" data-trans="title">Title</th>
+                    <th class="sort" data-value="price" onclick="onSortClick(this)" data-trans="price">Price</th>
+                    <th class="sort" data-value="rate" onclick="onSortClick(this)" data-trans="rate">Rating</th>
+                    <th data-trans="actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody class='books-container'>
+            </tbody>
+        </table>
+        <button class="btn btn-success" onclick="onShowAddModal()" data-trans="add-book">Add Book</button>
+    </div>
+
+    <!-- ADD BOOK MODAL -->
+    <div class="modal fade" id="addBookModal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="addBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addBookModalLabel" data-trans="add-new-book">Add a new book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label data-trans="book-title">Book title:</label>
+                        <input type="text" class="form-control" id="bookName" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-trans="book-price">Book price:</label>
+                        <input type="number" class="form-control" id="bookPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-trans="book-url">Book image URL:</label>
+                        <input type="url" class="form-control" id="bookImgUrl">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        data-trans="close">Close</button>
+                    <button type="button" class="btn btn-lg btn-primary" onclick="onAddBook()"
+                        data-trans="save">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- UPDATE MODAL -->
+    <div class="modal fade" id="updateBookModal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="updateBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateBookModalLabel" data-trans="book-change-price">Change book price
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label data-trans="book-old-price" class="">Books old price:</label><span
+                            id="oldBookPrice"></span>
+                        <div>
+                            <label data-trans="book-new-price" class="">Books new price:</label>
+                        </div>
+
+                        <input type="number" class="form-control" id="newBookPrice">
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        data-trans="close">Close</button>
+                    <button type="button" class="btn btn-primary" data-trans="save" data-dismiss="modal"
+                        onclick="onUpdateBook()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- READ MODAL -->
+    <div class="modal fade" id="readBookModal" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="readBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="readBookModalLabel" data-trans="book-name">Book name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="img-container"></div>
+                    <div class="details-container">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        data-trans="close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="confirm-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p data-trans="delete-confirm">Are you sure you want to delete this book?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-id="yes"
+                        data-trans="yes">Yes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" data-trans="no">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="lib/hammerjs.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/i18n-service.js"></script>
+    <script src="js/bookController.js"></script>
+    <script src="js/bookService.js"></script>
+    <script src="js/storageService.js"></script>
+
+</body>
+
+</html>

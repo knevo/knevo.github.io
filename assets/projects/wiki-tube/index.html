@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/global.css">
+    <script src="lib/fa/all.js"></script>
+    <title>WikiTube</title>
+</head>
+
+<body onload="init()">
+    <nav class="flex space-between align-center">
+        <span class="main-logo">WikiTube</span>
+        <div class="search-container flex">
+            <input class="search-box" type="text" placeholder="Search">
+            <button type="submit" onclick="onSearch()"><i class="fa fa-search"></i></button>
+        </div>
+    </nav>
+<div class="main-container flex space-between">
+    <section class="side-list">
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+        <div class="video-thumb"></div>
+    </section>
+    <section class="player">
+        <div class="iframe-container ">
+            <iframe class="" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen>
+            </iframe>
+        </div>
+        <div class="wiki">
+        </div>
+    </section>
+</div>
+    <footer>
+        <div class="container flex column align-center">
+            <h2>Seach history:</h2>
+            <div class="history-container"></div>
+            <div class="btns">
+                <button onclick="onHistoryClear()">Clear history</button>
+                <button onclick="onThemeChange()">Change Background color</button>
+            </div>
+        </div>
+        
+    </footer>
+    <script src="lib/axios.js"></script>
+    <script src="lib/swal.js"></script>
+    <script src="js/tubeService.js"></script>
+    <script src="js/storageService.js"></script>
+    <script src="js/tubeController.js"></script>
+</body>
+
+</html>

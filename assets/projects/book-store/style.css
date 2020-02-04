@@ -1,0 +1,45 @@
+body{
+    font-family: cursive,Georgia, 'Times New Roman', Times, serif;
+    background-image: url('imgs/background.jpeg');
+    background-size: inherit;
+    z-index: -100;
+    line-height: 1;
+}
+.bookID{
+    font-family: Arial;
+    font-size: 15px;
+}
+.rows{
+    /* text-align: center; */
+    font-size: 1.5rem;
+}
+#readBookModal .modal-body{
+    display:flex;
+}
+#readBookModal .details-container{
+    padding-left: 10px;
+    text-align: center;
+}
+@media (max-width: 720px){
+    .container{
+        padding-left: 0;
+        padding-inline-end: 0;
+    }
+}
+
+th.sort:hover{
+    color:red;
+    cursor: pointer;
+
+}
+.container{
+    margin: 100px auto;
+}
+table{
+    background-color:rgba(255, 255, 255, 0.5);
+}
+a:not([href]):not([tabindex]){
+    color: #007bff;
+    cursor: pointer;
+    
+}

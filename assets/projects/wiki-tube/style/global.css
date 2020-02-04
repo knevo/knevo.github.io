@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+*[onclick] {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4 {
+  /* margin: 0; */
+  display: inline-block;
+}
+p {
+  margin: 0;
+  display: inline;
+}
+body {
+  margin: 0;
+  font-family: cursive;
+  font-size: 1rem;
+  background-color: darkslategray;
+}
+.container {
+  max-width: 70%;
+  margin: 0 auto;
+}
+/* NAV */
+
+nav {
+  background-color: rgb(42, 41, 110);
+  height: 100px;
+  margin-block-end: 10px;
+}
+
+.search-container {
+  margin-inline-end: 100px;
+}
+
+.search-box {
+  padding: 15px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  text-align: left;
+  width: 500px;
+}
+
+.search-container > button {
+  padding: 15px;
+  margin-top: 8px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container > button:hover {
+  background: #ccc;
+}
+
+.main-logo {
+  margin-inline-start: 50px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* SIDE VIDEOS */
+
+.side-list {
+  padding: 20px 20px 0px 20px;
+  flex-basis: 33%;
+  margin-inline-end: 20px;
+  box-shadow: 3px 7px 24px 14px rgba(0, 0, 0, 0.29);
+}
+
+.video-thumb {
+  background-color: rgb(73, 73, 73);
+  margin-block-end: 20px;
+  border-radius: 40px;
+  transition: all 150ms ease-in-out;
+}
+
+.video-thumb:hover {
+  transform: scale(1.1);
+}
+
+.video-thumb > img {
+  border: 1px groove white;
+  margin-inline-end: 10px;
+  border-radius: 20px;
+}
+
+/* MAIN */
+.main-container {
+  padding-right: 100px;
+}
+.player {
+  flex-grow: 1;
+  max-width: 50%;
+}
+
+.iframe-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.wiki {
+  margin-block-start: 20px;
+}
+footer {
+  padding: 35px 0 15px;
+}
+.history-container {
+  margin-block-end: 20px;
+}
+.history-container p {
+  padding: 5px;
+  border: 1px solid black;
+  margin-inline-start: 10px;
+}
+.history-container p:hover {
+  color: darkturquoise;
+}
+footer button {
+  padding: 15px;
+  border: none;
+  border-radius: 20px;
+}
+
+/* HELPERS */
+
+.flex {
+  display: flex;
+}
+
+.flex.center {
+  justify-content: center;
+}
+
+.flex.space-between {
+  justify-content: space-between;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex.column {
+  flex-direction: column;
+}
+
+@media (max-width: 720px) {
+  nav {
+    flex-direction: column;
+  }
+  .main-logo {
+    margin: 0;
+  }
+  .search-box {
+    max-width: 100%;
+  }
+  .search-container {
+    max-width: 100%;
+    margin: 0;
+  }
+  .main-container {
+    flex-direction: column;
+  }
+  .player {
+    max-width: 100%;
+    margin: 0;
+    order: 0;
+  }
+  .side-list {
+    max-width: 100%;
+    order: 1;
+  }
+  .iframe-container {
+    max-width: 100%;
+    height: 450px;
+  }
+  .wiki {
+    padding: 5px 15px;
+  }
+}

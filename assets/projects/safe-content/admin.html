@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/admin.css">
+    <title>Admin console</title>
+</head>
+
+<body onload="init()">
+    <div class="container">
+        <table class="table-fill">
+            <thead>
+                <tr>
+                    <th onclick="onSortClick('name')" data-sort-by="name">Name</th>
+                    <th>Password</th>
+                    <th onclick="onSortClick('lastLogin')"  data-sort-by="lastLogin">Last login</th>
+                    <th onclick="onSortClick('isAdmin')"  data-sort-by="isAdmin">Is Admin?</th>
+                </tr>
+            </thead>
+            <tbody class="table-container">
+    
+            </tbody>
+        </table>
+        <button class="logout" onclick="onLogoutClick()">Logout</button>
+        <button class="logout add-btn" onclick="onShowAddUserModal()">Add user</button>
+    </div>
+    
+<div id="addUserModal" class="modal" hidden>
+    <div class="modal-content">
+      <span onclick="onCloseAddUserModal()" class="close">&times;</span>
+      <label>Username:</label>
+      <input id="username" type="text">
+      <label>Password:</label>
+      <input id="password" type="password">
+      <input type="checkbox" id="is-admin"><span>is admin?</span>
+      <button class="logout add-btn" onclick="onAddUser()">Add</button>
+    </div>
+  
+  </div>
+
+
+
+    <script src="js/adminController.js"></script>
+    <script src="js/secretService.js"></script>
+    <script src="js/StorageService.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style/global.css">
+    <title>TravelTip</title>
+</head>
+
+<body>
+    <nav class="flex space-between align-center">
+        <span class="main-logo">TravelTip</span>
+        <div class="search-container">
+            <input class="search-box" type="text" placeholder="Enter location">
+            <button>Search</button>
+            <button class="locate">My location</button>
+        </div>
+    </nav>
+
+    <section class="location-bar flex space-around">
+        <div class="location-container">
+            <span>Location: </span><span class="curr-location">Rodus</span>
+        </div>
+        <button class="location-copy">Copy Location</button>
+    </section>
+
+    <section class="main flex space-between">
+        <div class="details-container">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Info</th>
+                    <th>Weather</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody class="table-container"></tbody>
+            </table>
+            <div class="weather-container"></div>
+        </div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </section>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2AzIGXea1F29rnU7mwmxbLkZXGjuwSCA"
+        type="text/javascript"></script>
+    <script src="./lib/axios.js"></script>
+    <script src="./lib/swal.js"></script>
+    <script src="js/cmps/LocationPreview.js"></script>
+    <script src="js/travelService.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/travelController.js"></script>
+</body>
+
+</html>

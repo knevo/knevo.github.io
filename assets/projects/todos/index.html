@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/todos.css">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <div class="container">
+
+        <h1>Todo List</h1>
+
+        <div class="addTodo">
+            <input type="text" id="todo-title" placeholder="Add todo">
+            <button onclick="onAddClick()">Add</button>
+            <span class="importance">Importance:
+                <input type="radio" name="importance" value="1" checked>1
+                <input type="radio" name="importance" value="2">2
+                <input type="radio" name="importance" value="3">3
+            </span>
+        </div>
+        <div class='sortBlock'>
+            <span class="filterTodos">
+                Filter By:
+                <select id="status-filter" onchange="onStatusFilterChange(this)">
+                    <option value="all">All</option>
+                    <option value="done">Done</option>
+                    <option value="active">Active</option>
+                </select>
+            </span>
+            <span class="sortTodos">
+                Sort By:
+                <select id="status-sort" onchange="onStatusSortChange(this)">
+                    <option value="text">Text</option>
+                    <option value="created">Created</option>
+                    <option value="importance">Importance</option>
+                </select></span>
+        </div>
+
+        <ul class="todos">
+        </ul>
+
+        <div class="status">
+            Total Todos: <span id="total-todos">-</span> Active: <span id="active-todos">-</span>
+        </div>
+        <div class="modal-popup">
+            <h1>Are you sure?</h1>
+            <button onclick="onDeleteConfirm(this.dataset.dataId)" id="confirm">Yes</button>
+            <button onclick="document.querySelector('.modal-popup').style.display='none';">No</button>
+        </div>
+    </div>
+
+    <script src="./js/storageService.js"></script>
+    <script src="./js/todosService.js"></script>
+    <script src="./js/todosController.js"></script>
+</body>
+
+</html>

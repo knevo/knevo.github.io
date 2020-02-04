@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+    /* margin: 0; */
+    display: inline-block;
+}
+
+p {
+    margin: 0;
+    display: inline;
+}
+
+body {
+    margin: 0;
+    font-family: cursive;
+    font-size: 1rem;
+    background-color: darkslategray;
+}
+
+/* NAV */
+
+nav {
+    background-color: pink;
+    height: 100px;
+}
+.main-logo {
+    margin-inline-start: 50px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.search-container {
+    margin-inline-end: 100px;
+}
+
+.search-box {
+    padding: 15px;
+    margin-top: 8px;
+    font-size: 1.025rem;
+    border: none;
+    text-align: left;
+    width: 250px;
+}
+
+.search-container>button {
+    padding: 15px;
+    margin-top: 8px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.search-container>button:hover {
+    background: #ccc;
+}
+.location-bar{
+    background-color: pink;
+    font-size: 1.5rem;
+}
+/* MAIN */
+
+.details-container{
+    max-width: 50%;
+}
+.map-container{
+    max-width: 50%;
+}
+.map-container>*{
+    width: 500px;
+    height: 500px;
+}
+
+/* TABLE */
+
+.table-container {
+    background: white;
+    border-radius: 3px;
+    border-collapse: collapse;
+    height: 320px;
+    margin: auto;
+    max-width: 600px;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: float 5s infinite;
+}
+
+th {
+    color: #D5DDE5;
+    background: #1b1e24;
+    border-bottom: 4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+    font-size: 23px;
+    font-weight: 100;
+    padding: 24px;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+
+tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    color: #666B85;
+    font-size: 16px;
+    font-weight: normal;
+    text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+td {
+    background: #FFFFFF;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+}
+
+tr:hover td {
+    background: #4E5066;
+    color: #FFFFFF;
+    border-top: 1px solid #22262e;
+}
+
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.flex.center {
+    justify-content: center;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+.flex.space-around {
+    justify-content: space-around;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.column {
+    flex-direction: column;
+}
