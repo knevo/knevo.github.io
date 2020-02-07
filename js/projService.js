@@ -19,7 +19,7 @@ function createProj(id, name, title, desc, url, publishedAt, category) {
 
 function createProjects() {
     gProj.push(createProj('webify', 'Webify',
-        'Create powerful responsive websites', 'A simple drag & drop website builder with the power to create modern and responsive single page websites in minutes', 'webify-ca.herokuapp.com', '28/1/20', 'React, Redux, Wix, APIs'))
+        'Create powerful responsive websites', 'A simple drag & drop website builder with the power to create modern and responsive single page websites in minutes', 'http://webify-ca.herokuapp.com', '28/1/20', 'React, Redux, Wix, APIs'))
 
     gProj.push(createProj('appsus', 'Appsus',
         '3 Apps in one place', 'Powerfull app that includes 3 different applications inside- a Gmail like app, a notes app and a book store management app', 'http://appsus.herokuapp.com/', '23/12/19', 'React, APIs'))
